@@ -2,7 +2,7 @@ import React from 'react'
 
 const Page = () => {
     return (
-        <div className="text-3xl">Page</div>
+        <div></div>
     )
 }
 export default Page
