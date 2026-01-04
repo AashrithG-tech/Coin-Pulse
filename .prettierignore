@@ -1,0 +1,25 @@
+# Build outputs
+.next/
+out/
+build/
+dist/
+coverage/
+.vercel/
+
+# Dependencies
+node_modules/
+
+# Logs
+*.log
+
+# Env
+.env*
+
+# Generated files
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Misc
+.DS_Store
+public/**/*.svg
