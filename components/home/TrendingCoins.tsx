@@ -52,6 +52,7 @@ const TrendingCoins = async () => {
             ) : (
               <TrendingDown width={16} height={16} />
             )}
+            <span>{change > 0 ? '+' : ''}{change.toFixed(2)}%</span>
           </div>
         );
       },
