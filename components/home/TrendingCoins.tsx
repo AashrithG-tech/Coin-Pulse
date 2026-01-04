@@ -60,7 +60,7 @@ const TrendingCoins = async () => {
       header: 'Price',
       cellClassName: 'w-[80px] text-right ',
       headClassName: 'w-[100px] text-right',
-      cell: (coin) => coin.item.data.price,
+      cell: (coin) => formatCurrency(coin.item.data.price),
     },
   ];
 
