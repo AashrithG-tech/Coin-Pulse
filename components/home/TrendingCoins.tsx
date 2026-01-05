@@ -2,7 +2,7 @@ import React from 'react';
 import { fetcher } from '@/lib/coingecko.actions';
 import Link from 'next/link';
 import Image from 'next/image';
-import { cn } from '@/lib/utils';
+import { cn, formatCurrency } from '@/lib/utils';
 import { TrendingDown, TrendingUp } from 'lucide-react';
 import Datatable from '@/components/Datatable';
 
@@ -52,7 +52,10 @@ const TrendingCoins = async () => {
             ) : (
               <TrendingDown width={16} height={16} />
             )}
-            <span>{change > 0 ? '+' : ''}{change.toFixed(2)}%</span>
+            <span>
+              {change > 0 ? '+' : ''}
+              {change.toFixed(2)}%
+            </span>
           </div>
         );
       },
