@@ -4,6 +4,34 @@ import Image from 'next/image';
 import { formatCurrency } from '@/lib/utils';
 import CandlestickChart from '@/components/CandleStickChart';
 
+const CoinOverviewFallback = () => {
+  return (
+    <div id="coin-overview-fallback" className="px-3 py-3 rounded-xl bg-dark-500">
+      <div className="chart-header">
+        <div className="flex-1">
+          <div className="header pt-2 items-center">
+            <div className="header-image skeleton" />
+            <div className="info">
+              <div className="header-line-sm skeleton rounded" />
+              <div className="header-line-lg skeleton rounded" />
+            </div>
+          </div>
+        </div>
+
+        <div className="button-group">
+          {Array.from({ length: 6 }).map((_, i) => (
+            <div key={i} className="period-button-skeleton skeleton" />
+          ))}
+        </div>
+      </div>
+
+      <div className="chart">
+        <div className="chart-skeleton skeleton" />
+      </div>
+    </div>
+  );
+};
+
 const CoinOverview = async () => {
   try {
     const [coin, coinOHLCData] = await Promise.all([
@@ -13,6 +41,10 @@ const CoinOverview = async () => {
         days: 1, // ✅ valid
       }),
     ]);
+
+    if (!coin || !coinOHLCData?.length) {
+      return <CoinOverviewFallback />;
+    }
 
     return (
       <div id="coin-overview">
